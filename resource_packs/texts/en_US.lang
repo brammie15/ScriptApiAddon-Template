@@ -1,0 +1,59 @@
+message.level1.name=Level 1
+message.level1.started=Level 1 is started!
+message.level1.complete=Level 1 is complete!
+message.level1.make=Make Level 1
+
+message.level2.name=Level 2
+message.level2.started=Level 2 is started!
+message.level2.complete=Level 2 is complete!
+message.level2.make=Make Level 2
+
+message.level3.name=Level 3
+message.level3.started=Level 3 is started!
+message.level3.complete=Level 3 is complete!
+message.level3.make=Make Level 3
+
+message.level_extra1.name=Extra level 1
+message.level_extra1.started=Extra level 1 is started!
+message.level_extra1.complete=Extra level 1 is complete!
+message.level_extra1.make=Make Extra level 1
+
+message.level_extra2.name=Extra level 2
+message.level_extra2.started=Extra level 2 is started!
+message.level_extra2.complete=Extra level 2 is complete!
+message.level_extra2.make=Make Extra level 2
+
+message.trail.follow=Follow the trail
+
+message.levels.completed=You have completed all levels!
+
+tile.cc:poor_dirt.name=Poor Dirt
+
+
+##npc names
+npc.name.help=Help
+npc.name.suki=§2Suki
+npc.name.bilal=§6Bilal
+npc.name.ramses=§dRamses
+npc.name.chanel=§9Chanel
+npc.name.paul=§7Paul
+npc.name.farah=§5Farah
+npc.name.turt=§aTurt
+npc.name.mo=§4Mo
+npc.name.al=Al
+
+button.thanks=Thanks!
+button.close=Close
+button.ok=Ok
+button.hello=Hello
+button.noprob=No problem
+button.letsgo=Let's Go!
+
+message.talkto.ramses=Talk to §dRamses
+message.talkto.chanel=Talk to §9Chanel
+
+message.goto.vault=Go to the vault
+
+message.intro.started=INTRO VAULT
+message.intro.make=MAKE INTRO VAULT
+message.intro.done=INTRO VAULT DONE

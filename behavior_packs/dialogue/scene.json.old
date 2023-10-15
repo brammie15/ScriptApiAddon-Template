@@ -1,0 +1,405 @@
+{
+  "format_version": "1.19.50",
+  "minecraft:npc_dialogue": {
+    "scenes": [
+      {
+        "scene_tag": "ramses_greeting_1",
+        "npc_name": {
+          "rawtext": [
+            {
+              "translate": "npc.name.ramses"
+            }
+          ]
+        },
+        "text": {
+          "rawtext": [
+            {
+              "translate": "ramses.greeting.1.text",
+              "with": ["\n"]
+            }
+          ]
+        },
+        "buttons": [
+          {
+            "name": {
+              "rawtext": [
+                {
+                  "translate": "ramses.greeting.1.button"
+                }
+              ]
+            },
+            "commands": ["/dialogue open @e[tag=ramses1] @initiator ramses_greeting_2"]
+          }
+        ]
+      },
+      {
+        "scene_tag": "ramses_greeting_2",
+        "npc_name": {
+          "rawtext": [
+            {
+              "translate": "npc.name.ramses"
+            }
+          ]
+        },
+        "text": {
+          "rawtext": [
+            {
+              "translate": "ramses.greeting.2.text",
+              "with": ["\n"]
+            }
+          ]
+        },
+        "buttons": [
+          {
+            "name": {
+              "rawtext": [
+                {
+                  "translate": "ramses.greeting.2.button"
+                }
+              ]
+            },
+            "commands": ["/dialogue open @e[tag=ramses1] @initiator ramses_greeting_3"]
+          }
+        ]
+      },
+      {
+        "scene_tag": "ramses_greeting_3",
+        "npc_name": {
+          "rawtext": [
+            {
+              "translate": "npc.name.ramses"
+            }
+          ]
+        },
+        "text": {
+          "rawtext": [
+            {
+              "translate": "ramses.greeting.3.text",
+              "with": ["\n"]
+            }
+          ]
+        },
+        "buttons": [
+          {
+            "name": {
+              "rawtext": [
+                {
+                  "translate": "button.ok"
+                }
+              ]
+            },
+            "commands": ["/scriptevent cc:startTrail"]
+          }
+        ]
+      },
+      {
+        "scene_tag": "chanel_greeting_1",
+        "npc_name": {
+          "rawtext": [
+            {
+              "translate": "npc.name.chanel"
+            }
+          ]
+        },
+        "text": {
+          "rawtext": [
+            {
+              "translate": "chanel.greeting.1.text",
+              "with": ["\n"]
+            }
+          ]
+        },
+        "buttons": [
+          {
+            "name": {
+              "rawtext": [
+                {
+                  "translate": "chanel.greeting.1.button"
+                }
+              ]
+            },
+            "commands": ["/dialogue open @e[tag=chanel1] @initiator chanel_greeting_2"]
+          }
+        ]
+      },
+      {
+        "scene_tag": "chanel_greeting_2",
+        "npc_name": {
+          "rawtext": [
+            {
+              "translate": "npc.name.chanel"
+            }
+          ]
+        },
+        "text": {
+          "rawtext": [
+            {
+              "translate": "chanel.greeting.2.text",
+              "with": ["\n"]
+            }
+          ]
+        },
+        "buttons": [
+          {
+            "name": {
+              "rawtext": [
+                {
+                  "translate": "button.ok"
+                }
+              ]
+            },
+            "commands": ["/scriptevent cc:startLevel1"]
+          }
+        ]
+      },
+      {
+        "scene_tag": "chanel_level1_complete",
+        "npc_name": {
+          "rawtext": [
+            {
+              "translate": "npc.name.chanel"
+            }
+          ]
+        },
+        "text": {
+          "rawtext": [
+            {
+              "translate": "chanel.level1.text",
+              "with": ["\n"]
+            }
+          ]
+        },
+        "buttons": [
+          {
+            "name": {
+              "rawtext": [
+                {
+                  "translate": "chanel.level1.button"
+                }
+              ]
+            },
+            "commands": ["/scriptevent cc:startLevel2"]
+          }
+        ]
+      },
+      {
+        "scene_tag": "chanel_level2_complete",
+        "npc_name": {
+          "rawtext": [
+            {
+              "translate": "npc.name.chanel"
+            }
+          ]
+        },
+        "text": {
+          "rawtext": [
+            {
+              "translate": "chanel.level2.text",
+              "with": ["\n"]
+            }
+          ]
+        },
+        "buttons": [
+          {
+            "name": {
+              "rawtext": [
+                {
+                  "translate": "chanel.level2.button"
+                }
+              ]
+            },
+            "commands": ["/scriptevent cc:startLevel3"]
+          }
+        ]
+      },
+      {
+        "scene_tag": "chanel_level3_complete_1",
+        "npc_name": {
+          "rawtext": [
+            {
+              "translate": "npc.name.chanel"
+            }
+          ]
+        },
+        "text": {
+          "rawtext": [
+            {
+              "translate": "chanel.level3.1.text",
+              "with": ["\n"]
+            }
+          ]
+        },
+        "buttons": [
+          {
+            "name": {
+              "rawtext": [
+                {
+                  "translate": "chanel.level2.1.button"
+                }
+              ]
+            },
+            "commands": ["/dialogue open @e[tag=chanel1] @initiator chanel_level3_complete_2"]
+          }
+        ]
+      },
+      {
+        "scene_tag": "chanel_level3_complete_2",
+        "npc_name": {
+          "rawtext": [
+            {
+              "translate": "npc.name.chanel"
+            }
+          ]
+        },
+        "text": {
+          "rawtext": [
+            {
+              "translate": "chanel.level3.2.text",
+              "with": ["\n"]
+            }
+          ]
+        },
+        "buttons": []
+      },
+      {
+        "scene_tag": "chanel_levelExtra1_greeting_1",
+        "npc_name": {
+          "rawtext": [
+            {
+              "translate": "npc.name.chanel"
+            }
+          ]
+        },
+        "text": {
+          "rawtext": [
+            {
+              "translate": "chanel.levelExtra1.1.text",
+              "with": ["\n"]
+            }
+          ]
+        },
+        "buttons": [
+          {
+            "name": {
+              "rawtext": [
+                {
+                  "translate": "chanel.levelExtra1.1.button"
+                }
+              ]
+            },
+            "commands": ["/dialogue open @e[tag=chanel2] @initiator chanel_levelExtra1_greeting_2"]
+          }
+        ]
+      },
+      {
+        "scene_tag": "chanel_levelExtra1_greeting_2",
+        "npc_name": {
+          "rawtext": [
+            {
+              "translate": "npc.name.chanel"
+            }
+          ]
+        },
+        "text": {
+          "rawtext": [
+            {
+              "translate": "chanel.levelExtra1.2.text",
+              "with": ["\n"]
+            }
+          ]
+        },
+        "buttons": [
+          {
+            "name": {
+              "rawtext": [
+                {
+                  "translate": "button.noprob"
+                }
+              ]
+            },
+            "commands": ["/scriptevent cc:startExtraLevel1"]
+          }
+        ]
+      },
+      {
+        "scene_tag": "chanel_level2Extra_greeting_1",
+        "npc_name": {
+          "rawtext": [
+            {
+              "translate": "npc.name.chanel"
+            }
+          ]
+        },
+        "text": {
+          "rawtext": [
+            {
+              "translate": "chanel.levelExtra2.1.text",
+              "with": ["\n"]
+            }
+          ]
+        },
+        "buttons": [
+          {
+            "name": {
+              "rawtext": [
+                {
+                  "translate": "button.ok"
+                }
+              ]
+            },
+            "commands": ["/dialogue open @e[tag=chanel2] @initiator chanel_level2Extra_greeting_2"]
+          }
+        ]
+      },
+      {
+        "scene_tag": "chanel_level2Extra_greeting_2",
+        "npc_name": {
+          "rawtext": [
+            {
+              "translate": "npc.name.chanel"
+            }
+          ]
+        },
+        "text": {
+          "rawtext": [
+            {
+              "translate": "chanel.levelExtra2.2.text",
+              "with": ["\n"]
+            }
+          ]
+        },
+        "buttons": [
+          {
+            "name": {
+              "rawtext": [
+                {
+                  "translate": "button.letsgo"
+                }
+              ]
+            },
+            "commands": ["/scriptevent cc:startExtraLevel2"]
+          }
+        ]
+      },
+      {
+        "scene_tag": "chanel_level2Extra_complete_1",
+        "npc_name": {
+          "rawtext": [
+            {
+              "translate": "npc.name.chanel"
+            }
+          ]
+        },
+        "text": {
+          "rawtext": [
+            {
+              "translate": "chanel.levelExtra2.text",
+              "with": ["\n"]
+            }
+          ]
+        },
+        "buttons": []
+      }
+    ]
+  }
+}

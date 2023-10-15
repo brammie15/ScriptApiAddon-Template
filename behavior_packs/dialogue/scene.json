@@ -1,0 +1,37 @@
+{
+  "format_version": "1.19.50",
+  "minecraft:npc_dialogue": {
+    "scenes": [
+      {
+        "scene_tag": "chanel_greeting_1",
+        "npc_name": {
+          "rawtext": [
+            {
+              "translate": "npc.name.chanel"
+            }
+          ]
+        },
+        "text": {
+          "rawtext": [
+            {
+              "translate": "chanel.greeting.1.text",
+              "with": ["\n"]
+            }
+          ]
+        },
+        "buttons": [
+          {
+            "name": {
+              "rawtext": [
+                {
+                  "translate": "chanel.greeting.1.button"
+                }
+              ]
+            },
+            "commands": ["/scriptevent cc:startIntro"]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+- [x] Talk to Ramses
+- [x] Follow trail
+- [x] Talk to Chanel
+- [ ] Make exercise 1
+- [ ] Talk to Chanel
+- [ ] Make exercise 2
+- [ ] Talk to Chanel
+- [ ] Make exercise 3
+- [ ] Talk to Chanel (she says you are done)
