@@ -6,6 +6,12 @@
   "texture_data": {
     "poor_dirt": {
       "textures": "textures/blocks/poor_dirt"
+    },
+    "turn_left_arrow": {
+      "textures": "textures/blocks/turn_left_front"
+    },
+    "turn_left_white": {
+      "textures": "textures/blocks/turn_left_white"
     }
   }
 }

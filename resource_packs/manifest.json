@@ -1,29 +1,25 @@
 {
   "format_version": 2,
   "metadata": {
-    "authors": ["Codecosmos"],
-    "generated_with": {
-      "bridge": ["2.6.1"],
-      "dash": ["0.10.10"]
-    }
+    "authors": ["Codecosmos"]
   },
   "header": {
     "name": "Reeks2Missie8",
-    "description": "",
+    "description": "De Resourcepack voor lessenreeks 2, missie 8",
     "min_engine_version": [1, 20, 0],
-    "uuid": "a528c226-d512-4b14-8849-141bd66ee815",
+    "uuid": "89edfa9c-8203-49f3-9614-3f8cbda85692",
     "version": [1, 0, 0]
   },
   "modules": [
     {
       "type": "resources",
-      "uuid": "c897efc5-c4db-42c1-9ec8-863131997a9f",
+      "uuid": "690976ab-71a3-45da-b4a6-667b1aa5d6a1",
       "version": [1, 0, 0]
     }
   ],
   "dependencies": [
     {
-      "uuid": "bdb6061f-2314-45dc-a0d7-5ee36dc9a6e1",
+      "uuid": "a1d1c674-1f3a-49de-a4e4-2d49f80134f3",
       "version": [1, 0, 0]
     }
   ]

@@ -1,9 +1,12 @@
 {
   "format_version": 2,
+  "metadata": {
+    "authors": ["Codecosmos"]
+  },
   "header": {
     "name": "Reeks2Missie8",
     "description": "De Datapack voor lessenreeks 2, missie 8",
-    "uuid": "14e467b4-e3aa-49d3-8352-f8439fd7b2ee",
+    "uuid": "a1d1c674-1f3a-49de-a4e4-2d49f80134f3",
     "version": [1, 0, 0],
     "min_engine_version": [1, 20, 0]
   },
@@ -12,7 +15,7 @@
       "description": "Script resources",
       "language": "javascript",
       "type": "script",
-      "uuid": "7c7e693f-99f4-41a9-95e0-1f57b37e1e12",
+      "uuid": "893c4d21-895e-47a3-866a-ae56bba8f36c",
       "version": [1, 0, 1],
       "entry": "scripts/main.js"
     }
@@ -23,7 +26,7 @@
       "version": "1.4.0-beta"
     },
     {
-      "uuid": "a528c226-d512-4b14-8849-141bd66ee815",
+      "uuid": "89edfa9c-8203-49f3-9614-3f8cbda85692",
       "version": [1, 0, 0]
     }
   ]

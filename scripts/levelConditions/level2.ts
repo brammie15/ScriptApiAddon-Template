@@ -1,84 +1,142 @@
 import { BlockType, MinecraftBlockTypes, Vector3 } from "@minecraft/server";
-import { LevelBlockCondition } from "../Commandeer/level/levelTypes";
+import { LevelBlockCondition, LevelNoGoZone } from "../Commandeer/level/levelTypes";
+import { vector3 } from "../Commandeer/utils/vectorUtils";
 
 let level2Conditions: LevelBlockCondition = {
   conditions: [
     {
-      block: MinecraftBlockTypes.sapling,
-      position: { x: 226, y: 74, z: 36 },
+      block: MinecraftBlockTypes.air,
+      position: vector3(45, 70, 220),
     },
     {
-      block: MinecraftBlockTypes.sapling,
-      position: { x: 228, y: 74, z: 36 },
+      block: MinecraftBlockTypes.air,
+      position: vector3(44, 70, 220),
     },
     {
-      block: MinecraftBlockTypes.sapling,
-      position: { x: 232, y: 74, z: 36 },
+      block: MinecraftBlockTypes.air,
+      position: vector3(43, 70, 220),
     },
     {
-      block: MinecraftBlockTypes.sapling,
-      position: { x: 237, y: 74, z: 36 },
+      block: MinecraftBlockTypes.air,
+      position: vector3(42, 70, 220),
     },
     {
-      block: MinecraftBlockTypes.sapling,
-      position: { x: 239, y: 74, z: 36 },
+      block: MinecraftBlockTypes.air,
+      position: vector3(41, 70, 220),
     },
     {
-      block: MinecraftBlockTypes.sapling,
-      position: { x: 243, y: 74, z: 36 },
+      block: MinecraftBlockTypes.air,
+      position: vector3(40, 70, 220),
+    },
+    {
+      block: MinecraftBlockTypes.air,
+      position: vector3(39, 70, 220),
+    },
+    {
+      block: MinecraftBlockTypes.air,
+      position: vector3(38, 70, 220),
+    },
+    {
+      block: MinecraftBlockTypes.air,
+      position: vector3(37, 70, 220),
+    },
+    {
+      block: MinecraftBlockTypes.air,
+      position: vector3(36, 70, 220),
+    },
+    {
+      block: MinecraftBlockTypes.air,
+      position: vector3(35, 70, 220),
+    },
+    {
+      block: MinecraftBlockTypes.air,
+      position: vector3(34, 70, 220),
+    },
+    {
+      block: MinecraftBlockTypes.air,
+      position: vector3(33, 70, 220),
     },
 
     {
       block: MinecraftBlockTypes.air,
-      position: { x: 225, y: 74, z: 36 },
+      position: vector3(33, 70, 219),
     },
     {
       block: MinecraftBlockTypes.air,
-      position: { x: 229, y: 74, z: 36 },
+      position: vector3(33, 70, 218),
     },
     {
       block: MinecraftBlockTypes.air,
-      position: { x: 230, y: 74, z: 36 },
+      position: vector3(33, 70, 217),
     },
     {
       block: MinecraftBlockTypes.air,
-      position: { x: 231, y: 74, z: 36 },
+      position: vector3(33, 70, 216),
     },
     {
       block: MinecraftBlockTypes.air,
-      position: { x: 233, y: 74, z: 36 },
+      position: vector3(33, 70, 215),
     },
     {
       block: MinecraftBlockTypes.air,
-      position: { x: 234, y: 74, z: 36 },
+      position: vector3(33, 70, 214),
     },
     {
       block: MinecraftBlockTypes.air,
-      position: { x: 235, y: 74, z: 36 },
+      position: vector3(33, 70, 213),
     },
     {
       block: MinecraftBlockTypes.air,
-      position: { x: 236, y: 74, z: 36 },
+      position: vector3(33, 70, 212),
+    },
+
+    {
+      block: MinecraftBlockTypes.air,
+      position: vector3(34, 70, 212),
     },
     {
       block: MinecraftBlockTypes.air,
-      position: { x: 238, y: 74, z: 36 },
+      position: vector3(35, 70, 212),
     },
     {
       block: MinecraftBlockTypes.air,
-      position: { x: 240, y: 74, z: 36 },
+      position: vector3(36, 70, 212),
     },
     {
       block: MinecraftBlockTypes.air,
-      position: { x: 241, y: 74, z: 36 },
+      position: vector3(37, 70, 212),
     },
     {
       block: MinecraftBlockTypes.air,
-      position: { x: 242, y: 74, z: 36 },
+      position: vector3(38, 70, 212),
     },
     {
       block: MinecraftBlockTypes.air,
-      position: { x: 244, y: 74, z: 36 },
+      position: vector3(39, 70, 212),
+    },
+    {
+      block: MinecraftBlockTypes.air,
+      position: vector3(40, 70, 212),
+    },
+    {
+      block: MinecraftBlockTypes.air,
+      position: vector3(41, 70, 212),
+    },
+    {
+      block: MinecraftBlockTypes.air,
+      position: vector3(42, 70, 212),
+    },
+    {
+      block: MinecraftBlockTypes.air,
+      position: vector3(43, 70, 212),
+    },
+    {
+      block: MinecraftBlockTypes.air,
+      position: vector3(44, 70, 212),
+    },
+    {
+      block: MinecraftBlockTypes.air,
+      position: vector3(45, 70, 212),
     },
   ],
 };

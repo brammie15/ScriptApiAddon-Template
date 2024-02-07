@@ -18,6 +18,8 @@ class TrailPoint {
         .getDimension("overworld")
         .spawnParticle("minecraft:balloon_gas_particle", spawnPosition, new MolangVariableMap());
     } catch (e) {}
+
+    
   }
 }
 
@@ -49,7 +51,7 @@ class Trail {
 
   fromTrail(trail: TrailType) {
     trail.points.forEach((point) => {
-      this.addPoint(new TrailPoint(point.vector3, point.index));
+      this.addPoint(new TrailPoint(point.position, point.index));
     });
   }
 

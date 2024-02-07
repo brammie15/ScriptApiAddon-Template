@@ -13,29 +13,25 @@ message.level3.started=Level 3 is started!
 message.level3.complete=Level 3 is complete!
 message.level3.make=Make Level 3
 
-message.level_extra1.name=Extra level 1
-message.level_extra1.started=Extra level 1 is started!
-message.level_extra1.complete=Extra level 1 is complete!
-message.level_extra1.make=Make Extra level 1
-
-message.level_extra2.name=Extra level 2
-message.level_extra2.started=Extra level 2 is started!
-message.level_extra2.complete=Extra level 2 is complete!
-message.level_extra2.make=Make Extra level 2
-
 message.trail.follow=Follow the trail
 
 message.levels.completed=You have completed all levels!
 
 tile.cc:poor_dirt.name=Poor Dirt
+tille.cc:turn_left.name=Turn left
 
+message.level.incorrect=§cIncorrect!§b
+message.level.incorrect.subtext=Probeer opnieuw!
+
+message.level.outofbounds=§cOut of bounds!§b
+message.level.outofbounds.subtext=You can't be over water!
 
 ##npc names
 npc.name.help=Help
 npc.name.suki=§2Suki
 npc.name.bilal=§6Bilal
 npc.name.ramses=§dRamses
-npc.name.chanel=§9Chanel
+npc.name.chanel=§9Wetenschapper Chanel
 npc.name.paul=§7Paul
 npc.name.farah=§5Farah
 npc.name.turt=§aTurt
@@ -54,6 +50,10 @@ message.talkto.chanel=Talk to §9Chanel
 
 message.goto.vault=Go to the vault
 
-message.intro.started=INTRO VAULT
-message.intro.make=MAKE INTRO VAULT
-message.intro.done=INTRO VAULT DONE
+message.intro.started=Crack the Vault!
+message.intro.make=Break the code!
+message.intro.done=§aYou have cracked the code!§b
+
+message.goto.field.1=Go to the First Field
+message.goto.field.2=Go to the Second Field
+message.goto.field.3=Go to the Last Field

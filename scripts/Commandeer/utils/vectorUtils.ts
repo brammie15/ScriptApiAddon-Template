@@ -1,5 +1,9 @@
 import { Vector3 } from "@minecraft/server";
 
+function vector3(x: number, y: number, z: number): Vector3 {
+  return { x: x, y: y, z: z };
+}
+
 function Vector3ToString(vector: Vector3) {
   return vector.x + "," + vector.y + "," + vector.z;
 }
@@ -36,4 +40,15 @@ function Vector3Abs(vector: Vector3): Vector3 {
   return { x: Math.abs(vector.x), y: Math.abs(vector.y), z: Math.abs(vector.z) };
 }
 
-export { Vector3ToString, Vector3Add };
+export {
+  Vector3ToString,
+  Vector3Add,
+  Vector3Subtract,
+  Vector3Multiply,
+  Vector3Divide,
+  Vector3Floor,
+  Vector3Ceil,
+  Vector3Round,
+  Vector3Abs,
+  vector3,
+};
