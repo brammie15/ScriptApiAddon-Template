@@ -1,11 +1,11 @@
 {
   "format_version": 2,
   "metadata": {
-    "authors": ["Codecosmos"]
+    "authors": ["Me and my cat"]
   },
   "header": {
-    "name": "Reeks2Missie8",
-    "description": "De Resourcepack voor lessenreeks 2, missie 8",
+    "name": "Resourcepack",
+    "description": "Lorem ipsum dit solor amet",
     "min_engine_version": [1, 20, 0],
     "uuid": "89edfa9c-8203-49f3-9614-3f8cbda85692",
     "version": [1, 0, 0]

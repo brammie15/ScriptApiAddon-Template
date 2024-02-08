@@ -1,7 +1,19 @@
 // === CONFIGURABLE VARIABLES
 
-const bpfoldername = "reeks2missie8";
+const bpfoldername = "FolderName";
 const isStoreVersion = true;
+
+const resource_pack_name = "ResourcePackName";
+const resource_pack_description = "ResourcePackDescription";
+const resource_pack_authors = ["Me and my cat"];
+
+const behavior_pack_name = "BehaviorPackName";
+const behavior_pack_description = "BehaviorPackDescription";
+const behavior_pack_authors = ["Me and my cat"];
+
+// === Optional variables
+
+const exportWorldFolderPath = "";
 
 // === END CONFIGURABLE VARIABLES
 
@@ -13,7 +25,11 @@ const spawn = require("child_process").spawn;
 const sourcemaps = require("gulp-sourcemaps");
 const zip = require("gulp-zip");
 const fs = require("fs");
-var rename = require("gulp-rename");
+const rename = require("gulp-rename");
+const crypto = require("crypto");
+
+var readLineSync = import("readline-sync");
+var NBT = import("nbtify");
 
 const worldsFolderName = "minecraftWorlds";
 
@@ -313,7 +329,6 @@ function rename_zip_to_mcworld(cb) {
     .src(["export/export.zip"])
     .pipe(rename(bpfoldername + ".mcworld"))
     .pipe(gulp.dest("export/"));
-  //fs.renameSync("export/export.zip", "export/" + bpfoldername + ".mcworld");
   cb();
 }
 
@@ -324,12 +339,6 @@ function zip_world(cb) {
     .src(["export/" + bpfoldername + "/**/**"], { base: "export/" + bpfoldername + "/" })
     .pipe(zip("export.zip", { compress: false, buffer: false }))
     .pipe(gulp.dest("export/"));
-  // gulp.src(["export/" + bpfoldername + "/**/**"]).pipe(gulp.dest("export/test/"));
-
-  // if (!fs.existsSync(zip_path)) {
-  //   cb(new Error("Zip file not found"));
-  //   return;
-  // }
 }
 
 function get_version() {
@@ -348,32 +357,38 @@ function add_version_to_world_name(cb) {
 }
 
 function copy_build_resource_pack_to_export_folder(cb) {
-  return gulp
+  gulp
     .src(["build/resource_packs/" + bpfoldername + "/**/**"])
     .pipe(gulp.dest("export/" + bpfoldername + "/resource_packs/" + bpfoldername));
+  cb();
 }
 
 function copy_build_behavior_pack_to_export_folder(cb) {
-  return gulp
+  gulp
     .src(["build/behavior_packs/" + bpfoldername + "/**/**"])
     .pipe(gulp.dest("export/" + bpfoldername + "/behavior_packs/" + bpfoldername));
+  cb();
 }
 
 function copy_world_to_export_folder(cb) {
-  var readLineSync = require("readline-sync");
-  let data = get_worlds_paths_and_names(cb);
-  let index = readLineSync.keyInSelect(
-    data.map((d) => d.name),
-    "Which world do you want to copy?"
-  );
-  if (index === -1) {
-    cb();
-    return;
+  if (exportWorldFolderPath == "") {
+    var readLineSync = import("readline-sync").then((readLineSync) => {
+      let data = get_worlds_paths_and_names(cb);
+      let index = readLineSync.keyInSelect(
+        data.map((d) => d.name),
+        "Which world do you want to copy?"
+      );
+      if (index === -1) {
+        cb();
+        return;
+      }
+      const world = data[index];
+      //console.log("Copying world '" + world.path + "' to 'build/worlds/export/'");
+      return gulp.src([world.path + "/**/*"]).pipe(gulp.dest("export/" + bpfoldername));
+    });
+  } else {
+    return gulp.src([exportWorldFolderPath + "/**/*"]).pipe(gulp.dest("export/" + bpfoldername));
   }
-  const world = data[index];
-  //console.log("Copying world '" + world.path + "' to 'build/worlds/export/'");
-  return gulp.src([world.path + "/**/*"]).pipe(gulp.dest("export/" + bpfoldername));
-
   //copy the build to the correct folder
   cb();
 }
@@ -383,7 +398,13 @@ function get_worlds_paths_and_names(cb) {
   const worldsPath = mcdir + worldsFolderName;
   const worlds = fs.readdirSync(worldsPath);
   worlds.forEach((world) => {
-    const worldName = fs.readFileSync(worldsPath + "/" + world + "/levelname.txt", "utf8");
+    let worldName = "UNDEFINED";
+    try {
+      worldName = fs.readFileSync(worldsPath + "/" + world + "/levelname.txt", "utf8");
+    } catch (e) {
+      console.log("Error reading levelname.txt for " + world);
+      console.error(e);
+    }
     data.push({
       path: worldsPath + "/" + world,
       name: worldName,
@@ -393,21 +414,104 @@ function get_worlds_paths_and_names(cb) {
   return data;
 }
 
-function nbt_rename_world(cb) {
-  const data = fs.readFileSync("export/" + bpfoldername + "/level.dat");
-  const nbt = require("prismarine-nbt");
-  nbt.parse(data, function (error, data) {
-    if (error) {
-      console.log(error);
-      return;
-    }
-    console.log(data.value.LevelName.value);
-    data.value.LevelName.value = bpfoldername + " " + get_version();
-    const newNbt = nbt.writeUncompressed(data);
-    fs.writeFileSync("export/" + bpfoldername + "/level.dat", newNbt);
-  });
+async function nbt_rename_world(cb) {
+  const NBT = await import("nbtify");
+  const { readFile, writeFile } = await import("fs/promises");
+  const buffer = await readFile("export/" + bpfoldername + "/level.dat");
+  const data = await NBT.read(buffer);
+  let oldLevelName = data.data.LevelName;
+  let newName = bpfoldername + " " + get_version();
+  data.data.LevelName = newName;
+  const result = await NBT.write(data);
+  await writeFile("export/" + bpfoldername + "/level.dat", result);
+  console.log("Renamed " + oldLevelName + " to " + newName);
   cb();
 }
+
+function levelnametxt_rename(cb) {
+  const { readFile, writeFile } = import("fs/promises");
+  const levelNameFilePath = "export/" + bpfoldername + "/levelname.txt";
+  let levelName = fs.readFileSync(levelNameFilePath, "utf8");
+  let newName = bpfoldername + " " + get_version();
+  fs.writeFileSync(levelNameFilePath, newName);
+  console.log("Renamed " + levelName + " to " + newName);
+  cb();
+}
+
+// Setup functions
+
+function setup_behaviour_pack(cb) {
+  const manifestPath = "behavior_packs/manifest.json";
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+
+  let header_uuid = get_behaviour_pack_uuid(cb);
+  let module_uuid = generate_UUID(cb);
+  let resource_pack_dependencies_uuid = get_resource_pack_uuid(cb);
+
+  console.log("Header UUID: " + header_uuid);
+  console.log("Module UUID: " + module_uuid);
+
+  manifest.header.uuid = header_uuid;
+  manifest.modules[0].uuid = module_uuid;
+  manifest.dependencies[1].uuid = resource_pack_dependencies_uuid;
+
+  manifest.metadata.authors = behavior_pack_authors;
+  manifest.header.name = behavior_pack_name;
+  manifest.header.description = behavior_pack_description;
+
+  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 1));
+  cb();
+}
+function setup_resource_pack(cb) {
+  const manifestPath = "resource_packs/manifest.json";
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+
+  let header_uuid = get_resource_pack_uuid(cb);
+  let module_uuid = generate_UUID(cb);
+  let dependencies_uuid = get_behaviour_pack_uuid(cb);
+
+  manifest.header.uuid = header_uuid;
+  manifest.modules[0].uuid = module_uuid;
+  manifest.dependencies[0].uuid = dependencies_uuid;
+
+  manifest.metadata.authors = resource_pack_authors;
+  manifest.header.name = resource_pack_name;
+  manifest.header.description = resource_pack_description;
+
+  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 1));
+  cb();
+}
+
+function generate_UUID(cb) {
+  let uuid = crypto.randomUUID();
+  return uuid;
+}
+
+var behavior_pack_uuid = null;
+var resource_pack_uuid = null;
+
+function get_uuid_for_type(cb, type) {
+  let to_return = null;
+  switch (type) {
+    case "behaviour_pack":
+      if (behavior_pack_uuid === null) {
+        behavior_pack_uuid = generate_UUID(cb);
+      }
+      to_return = behavior_pack_uuid;
+      break;
+    case "resource_pack":
+      if (resource_pack_uuid === null) {
+        resource_pack_uuid = generate_UUID(cb);
+      }
+      to_return = resource_pack_uuid;
+      break;
+    default:
+      return generate_UUID(cb);
+  }
+  return to_return;
+}
+let get_behaviour_pack_uuid = (cb) => get_uuid_for_type(cb, "behaviour_pack");
+let get_resource_pack_uuid = (cb) => get_uuid_for_type(cb, "resource_pack");
 
 exports.clean_build = clean_build;
 exports.copy_behavior_packs = copy_behavior_packs;
@@ -439,12 +543,14 @@ exports.compile_world = gulp.series(
 exports.zip = gulp.series(zip_world, rename_zip_to_mcworld);
 exports.export = gulp.series(
   clean_export,
-  build,
   copy_world_to_export_folder,
+  build,
   gulp.parallel(copy_build_behavior_pack_to_export_folder, copy_build_resource_pack_to_export_folder),
-  gulp.parallel(add_version_to_world_name, nbt_rename_world),
+  levelnametxt_rename,
+  nbt_rename_world,
   zip_world,
   rename_zip_to_mcworld
 );
 
-exports.test = gulp.series(nbt_rename_world);
+exports.test = gulp.parallel(setup_behaviour_pack, setup_resource_pack);
+exports.export_clean = gulp.series(clean_export);
